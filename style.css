@@ -20,7 +20,6 @@ body {
 .pulse {
   width: 10rem;
   height: 10rem;
-  border-radius: 50%;
   font-size: 10rem;
   display: flex;
   align-items: center;
@@ -29,25 +28,29 @@ body {
   position: relative;
 }
 
-.pulse:before {
-  content: "";
-  background-color: var(--red-color-light);
-  position: absolute;
-  animation: pulse 1s ease-in;
-  border-radius: 50%;
-  opacity: 0;
- 
-}
-
 .pulse i {
   font-size: 8rem;
   height: 8rem;
   color: var(--red-color);
-  z-index: 3;
+  
 }
 
-.pulse:hover::before {
+.pulse-pseudo:before {
+  content: "";
+  background-color: var(--red-color-light);
+  position: absolute;
+  border-radius: 50%;
+  opacity: 1;
+  z-index: -1;
+}
+
+.pulse-pseudo:hover::before {
   animation: pulse 1s infinite;
+}
+
+.pulse-shadow {
+  background-color: transparent;
+  box-shadow: 0px 10px 100px var(--red-color);
 }
 
 @keyframes pulse {
