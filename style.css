@@ -1,14 +1,16 @@
 :root {
-  --red-color: #c0392b;
-  --red-color-light: #fad3cf;
+  --white-color: #FFF;
+  --blue-color: 0, 44, 155;
+
 }
 
 * {
   font-size: 10px;
+  font-family: system-ui;
 }
 
 body {
-  background-color: #FFF;
+  background-color: var(--white-color);
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -17,40 +19,43 @@ body {
   justify-content: center;
 }
 
-.pulse {
+.main {
+  display: flex;
+
+}
+
+.pulse-box {
+  width: 30rem;
+  display: flex;
+  justify-content: center;
+}
+
+.pulse-pseudo {
+  background-color: rgb(var(--blue-color));
   width: 10rem;
   height: 10rem;
   font-size: 10rem;
   display: flex;
+  border-radius: 50%;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
+  text-decoration: none; 
   position: relative;
 }
 
-.pulse i {
-  font-size: 8rem;
-  height: 8rem;
-  color: var(--red-color);
-  
+.pulse-pseudo i {
+  font-size: 5rem;
+  color: var(--white-color);
 }
 
 .pulse-pseudo:before {
   content: "";
-  background-color: var(--red-color-light);
+  background-color: rgba(var(--blue-color), .5);
   position: absolute;
   border-radius: 50%;
   opacity: 1;
   z-index: -1;
-}
-
-.pulse-pseudo:hover::before {
-  animation: pulse 1s infinite;
-}
-
-.pulse-shadow {
-  background-color: transparent;
-  box-shadow: 0px 10px 100px var(--red-color);
+  animation: pulse 2s linear infinite;
 }
 
 @keyframes pulse {
@@ -70,6 +75,37 @@ body {
     width: 20rem;
     height: 20rem;
     opacity: 0;
+  }
+}
+
+.pulse-shadow {
+  width: 10rem;
+  height: 10rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #FFF;
+  background-color: rgb(var(--blue-color));
+  animation: pulse-sh 1s linear infinite;
+}
+
+.pulse-shadow i {
+  font-size: 5rem;
+}
+
+@keyframes pulse-sh {
+  0% {
+    box-shadow: 0 0 0 0 var(--blue-color);
+  }
+
+  50% {
+    box-shadow: 0 0 0 20px rgba(var(--blue-color), 0.3);
+  }
+
+  100% {
+    box-shadow: 0 0 0 50px rgba(var(--blue-color), 0);
   }
 }
 
